@@ -54,4 +54,20 @@ public class Review {
   @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
   @JoinColumn(name = "user_id", nullable = false)
   private User user;
+
+  public long getId() {
+    return id;
+  }
+
+  public Date getReviewed() {
+    return reviewed;
+  }
+
+  public String getReview() {
+    return review;
+  }
+
+  public void setReview(String review) {
+    this.review = review;
+  }
 }
