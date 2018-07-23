@@ -15,7 +15,7 @@ import org.springframework.hateoas.EntityLinks;
 public class ParkAmenity {
 
   private static EntityLinks entityLinks;
-  
+
   @PostConstruct
   private void init() {
     String ignore = entityLinks.toString();
@@ -38,5 +38,20 @@ public class ParkAmenity {
   @JoinColumn(name = "amenity_id")
   Amenity amenity;
 
+  public Park getPark() {
+    return park;
+  }
+
+  public void setPark(Park park) {
+    this.park = park;
+  }
+
+  public Amenity getAmenity() {
+    return amenity;
+  }
+
+  public void setAmenity(Amenity amenity) {
+    this.amenity = amenity;
+  }
 
 }
