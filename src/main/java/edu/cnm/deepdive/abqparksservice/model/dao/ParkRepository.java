@@ -10,5 +10,7 @@ public interface ParkRepository extends CrudRepository<Park, Long> {
   Iterable<Park> findAllByParkAmenities(Amenity... amenities);
 
   Iterable<Park> findAllByParkAmenities(List<Amenity> amenities);
-  
+
+  Iterable<Park> findAl();
+
 }
