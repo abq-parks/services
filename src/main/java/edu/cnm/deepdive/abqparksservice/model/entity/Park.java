@@ -2,6 +2,7 @@ package edu.cnm.deepdive.abqparksservice.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +21,11 @@ import org.springframework.stereotype.Component;
 public class Park {
 
   private static EntityLinks entityLinks;
+
+  @PostConstruct
+  private void init() {
+    String ignore = entityLinks.toString();
+  }
 
   @Autowired
   private void setEntityLinks(EntityLinks entityLinks) {
@@ -40,8 +46,7 @@ public class Park {
   @Column(nullable = false)
   private double longitude;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "park", cascade = CascadeType.DETACH)
-  @OrderBy("DESC")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "park", cascade = CascadeType.ALL)
   private List<ParkAmenity> parkAmenities;
 
   public long getId() {
