@@ -23,8 +23,8 @@ public class ParkController {
   private ParkRepository parkRepository;
 
   @Autowired
-  public ParkController(ParkRepository parkRespository) {
-    this.parkRepository = parkRespository;
+  public ParkController(ParkRepository parkRepository) {
+    this.parkRepository = parkRepository;
   }
 
   @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)

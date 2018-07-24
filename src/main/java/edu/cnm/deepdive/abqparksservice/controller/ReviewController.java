@@ -30,7 +30,7 @@ public class ReviewController {
   public Iterable<Review> getReviews(@PathVariable("parkId") long parkId) {
     return reviewRepository.findAllByParkOrderByReviewDesc(parkId);
   }
-  
+
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
   @ExceptionHandler(NoSuchElementException.class)
   public void notFound() {
