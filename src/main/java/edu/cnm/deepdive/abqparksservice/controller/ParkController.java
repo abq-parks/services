@@ -26,7 +26,7 @@ public class ParkController {
 
   @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
   public Iterable<Park> allParks() {
-    return parkRepository.findAl();
+    return parkRepository.findAll();
   }
 
   @GetMapping(value = "/{amenities}", produces = MediaType.APPLICATION_JSON_VALUE)
