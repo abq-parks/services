@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.abqparksservice.model.entity;
 
+import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.persistence.CascadeType;
@@ -9,7 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 
@@ -36,8 +38,10 @@ public class Amenity {
   @Column(nullable = false)
   private String name;
 
-  @OneToMany(mappedBy = "amenity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private List<ParkAmenity> parkAmenities;
+  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "amenities",
+      cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  @OrderBy("name ASC")
+  private List<Park> parks = new LinkedList<>();
 
   public long getId() {
     return id;
@@ -51,12 +55,11 @@ public class Amenity {
     this.name = name;
   }
 
-  public List<ParkAmenity> getParkAmenities() {
-    return parkAmenities;
+  public List<Park> getParks() {
+    return parks;
   }
 
-  public void setParkAmenities(
-      List<ParkAmenity> parkAmenities) {
-    this.parkAmenities = parkAmenities;
+  public void setParks(List<Park> parks) {
+    this.parks = parks;
   }
 }

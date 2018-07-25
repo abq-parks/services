@@ -1,6 +1,6 @@
 package edu.cnm.deepdive.abqparksservice.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.persistence.CascadeType;
@@ -10,7 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
@@ -46,8 +48,12 @@ public class Park {
   @Column(nullable = false)
   private double longitude;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "park", cascade = CascadeType.ALL)
-  private List<ParkAmenity> parkAmenities;
+  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "parks",
+      cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  @JoinTable(joinColumns = @JoinColumn(name = "park_id"),
+      inverseJoinColumns = @JoinColumn(name = "amenity_id"))
+  @OrderBy("name ASC")
+  private List<Amenity> amenities = new LinkedList<>();
 
   public long getId() {
     return id;
