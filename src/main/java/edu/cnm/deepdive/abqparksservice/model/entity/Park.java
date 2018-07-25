@@ -48,7 +48,7 @@ public class Park {
   @Column(nullable = false)
   private double longitude;
 
-  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "parks",
+  @ManyToMany(fetch = FetchType.LAZY,
       cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   @JoinTable(joinColumns = @JoinColumn(name = "park_id"),
       inverseJoinColumns = @JoinColumn(name = "amenity_id"))

@@ -34,7 +34,7 @@ public class ParkController {
 
   @GetMapping(value = "/{amenities}", produces = MediaType.APPLICATION_JSON_VALUE)
   public Iterable<Park> searchParks(@PathVariable("amenities")Amenity... amenities) {
-    return parkRepository.findAllByParkAmenities(amenities);
+    return parkRepository.findAllByAmenities(amenities);
   }
 
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")

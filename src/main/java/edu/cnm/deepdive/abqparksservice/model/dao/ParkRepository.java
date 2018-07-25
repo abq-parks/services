@@ -7,8 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ParkRepository extends CrudRepository<Park, Long> {
 
-  Iterable<Park> findAllByParkAmenities(Amenity... amenities);
+  Iterable<Park> findAllByAmenities(Amenity... amenities);
 
-  Iterable<Park> findAllByParkAmenities(List<Amenity> amenities);
 
 }
