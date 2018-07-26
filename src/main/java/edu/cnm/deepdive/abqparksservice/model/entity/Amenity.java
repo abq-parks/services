@@ -41,7 +41,7 @@ public class Amenity implements BaseAmenity {
   @Column(nullable = false)
   private String name;
 
-  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "amenities",
+  @ManyToMany(fetch = FetchType.EAGER, mappedBy = "amenities",
       cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   @OrderBy("name ASC")
   private List<Park> parks = new LinkedList<>();

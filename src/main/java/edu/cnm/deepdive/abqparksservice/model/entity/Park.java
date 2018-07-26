@@ -3,6 +3,7 @@ package edu.cnm.deepdive.abqparksservice.model.entity;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import edu.cnm.deepdive.abqparksservice.utils.BaseAmenity;
 import edu.cnm.deepdive.abqparksservice.utils.BasePark;
+import java.net.URI;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -51,12 +52,16 @@ public class Park implements BasePark {
   @Column(nullable = false)
   private double longitude;
 
-  @ManyToMany(fetch = FetchType.LAZY,
+  @ManyToMany(fetch = FetchType.EAGER,
       cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   @JoinTable(joinColumns = @JoinColumn(name = "park_id"),
       inverseJoinColumns = @JoinColumn(name = "amenity_id"))
   @OrderBy("name ASC")
   private List<Amenity> amenities = new LinkedList<>();
+
+  public URI getHref() {
+    return entityLinks.linkForSingleResource(Review.class, id).toUri();
+  }
 
   public long getId() {
     return id;
