@@ -1,14 +1,31 @@
-package edu.cnm.deepdive.abqparksservice;
+package edu.cnm.deepdive.abqparksservice.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ParkJson {
 
-  private String displayFieldName;
+  private Attributes attributes;
 
+  private Geometry geometry;
 
-  private class Attributes {
+  public void setAttributes(Attributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public Attributes getAttributes() {
+    return attributes;
+  }
+
+  public void setGeometry(Geometry geometry) {
+    this.geometry = geometry;
+  }
+
+  public Geometry getGeometry() {
+    return geometry;
+  }
+
+  public class Attributes {
 
     private long objectId;
 
@@ -181,7 +198,7 @@ public class ParkJson {
     }
   }
 
-  private class Geometry {
+  public class Geometry {
 
     private double[][] rings;
 
