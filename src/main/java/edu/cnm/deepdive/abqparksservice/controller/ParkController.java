@@ -1,8 +1,11 @@
 package edu.cnm.deepdive.abqparksservice.controller;
 
+import edu.cnm.deepdive.abqparksservice.model.dao.AmenityRepository;
 import edu.cnm.deepdive.abqparksservice.model.dao.ParkRepository;
 import edu.cnm.deepdive.abqparksservice.model.entity.Amenity;
 import edu.cnm.deepdive.abqparksservice.model.entity.Park;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.ExposesResourceFor;
@@ -17,24 +20,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @ExposesResourceFor(Park.class)
-@RequestMapping("/parks/")
+@RequestMapping("/parks")
 public class ParkController {
 
   private ParkRepository parkRepository;
+  private AmenityRepository amenityRepository;
 
   @Autowired
-  public ParkController(ParkRepository parkRepository) {
+  public ParkController(ParkRepository parkRepository, AmenityRepository amenityRepository) {
     this.parkRepository = parkRepository;
+    this.amenityRepository = amenityRepository;
   }
 
-  @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public Iterable<Park> allParks() {
     return parkRepository.findAll();
   }
 
-  @GetMapping(value = "/{amenities}", produces = MediaType.APPLICATION_JSON_VALUE)
-  public Iterable<Park> searchParks(@PathVariable("amenities")Amenity... amenities) {
-    return parkRepository.findAllByAmenities(amenities);
+  @GetMapping(value = "{amenitiesId}", produces = MediaType.APPLICATION_JSON_VALUE)
+  public Iterable<Park> searchParks(@PathVariable("amenitiesId") Long[] amenitiesId) {
+    List<Amenity> amenities = new ArrayList<>();
+    for (int i = 0; i < amenitiesId.length; i++) {
+      amenities.add(amenityRepository.findById(amenitiesId[i]).get());
+    }
+    return parkRepository.findDistinctByAmenitiesIn(amenities);
   }
 
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")

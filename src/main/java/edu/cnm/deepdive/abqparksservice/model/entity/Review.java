@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.abqparksservice.model.entity;
 
 
+import java.net.URI;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -54,6 +55,20 @@ public class Review {
   @JoinColumn(name = "user_id", nullable = false)
   private User user;
 
+  private long reviewerId;
+
+  public long getReviewerId() {
+    return reviewerId;
+  }
+
+  public void setReviewerId(long reviewerId) {
+    this.reviewerId = reviewerId;
+  }
+
+  public URI getHref() {
+    return entityLinks.linkForSingleResource(Review.class, id).toUri();
+  }
+
   public long getId() {
     return id;
   }
@@ -68,5 +83,21 @@ public class Review {
 
   public void setReview(String review) {
     this.review = review;
+  }
+
+  public Park getPark() {
+    return park;
+  }
+
+  public void setPark(Park park) {
+    this.park = park;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 }

@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ReviewRepository extends CrudRepository<Review, Long> {
 
-  Iterable<Review> findAllByParkOrderByReviewDesc(long parkId);
+  Iterable<Review> findAllByPark_IdOrderByReviewDesc(long parkId);
 
 }
