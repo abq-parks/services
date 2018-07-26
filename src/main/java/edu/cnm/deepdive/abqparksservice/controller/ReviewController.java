@@ -40,12 +40,12 @@ public class ReviewController {
     return reviewRepository.findAllByPark_IdOrderByReviewDesc(parkId);
   }
 
-  @PostMapping(value = "{parkId}", consumes = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Review> post(@PathVariable("parkId") long parkId, @RequestBody Review review) {
-    return parkRepository.findById(parkId).map(
+  @PostMapping(value = "{args}", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<Review> post(@PathVariable("args") Long[] args, @RequestBody Review review) {
+    return parkRepository.findById(args[0]).map(
         park -> {
           review.setPark(park);
-          return userRepository.findById(review.getReviewerId()).map(
+          return userRepository.findById(args[1]).map(
               user -> {
                 review.setUser(user);
                 reviewRepository.save(review);
@@ -54,7 +54,6 @@ public class ReviewController {
           ).get();
         }
     ).get();
-
   }
 
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")

@@ -55,16 +55,6 @@ public class Review {
   @JoinColumn(name = "user_id", nullable = false)
   private User user;
 
-  private long reviewerId;
-
-  public long getReviewerId() {
-    return reviewerId;
-  }
-
-  public void setReviewerId(long reviewerId) {
-    this.reviewerId = reviewerId;
-  }
-
   public URI getHref() {
     return entityLinks.linkForSingleResource(Review.class, id).toUri();
   }
