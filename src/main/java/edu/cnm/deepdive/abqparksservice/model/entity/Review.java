@@ -39,7 +39,7 @@ public class Review {
   @CreationTimestamp
   @Temporal(TemporalType.DATE)
   @Column(nullable = false, updatable = false)
-  private Date reviewed;
+  private Date date;
 
   // Allow input of said review.
   @Column(nullable = false)
@@ -58,8 +58,8 @@ public class Review {
     return id;
   }
 
-  public Date getReviewed() {
-    return reviewed;
+  public Date getDate() {
+    return date;
   }
 
   public String getReview() {

@@ -32,7 +32,10 @@ public class User {
   private long id;
 
   @Column(nullable = false)
-  private String userName;
+  private String firstName;
+
+  @Column(nullable = false)
+  private String lastName;
 
   @Column
   private String userEmail;
@@ -40,16 +43,24 @@ public class User {
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.DETACH)
   private List<Review> user;
 
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
   public long getId() {
     return id;
   }
 
-  public String getUserName() {
-    return userName;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
   public String getUserEmail() {
