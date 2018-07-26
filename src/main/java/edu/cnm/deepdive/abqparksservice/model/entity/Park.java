@@ -1,5 +1,8 @@
 package edu.cnm.deepdive.abqparksservice.model.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import edu.cnm.deepdive.abqparksservice.utils.BaseAmenity;
+import edu.cnm.deepdive.abqparksservice.utils.BasePark;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -20,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-public class Park {
+public class Park implements BasePark {
 
   private static EntityLinks entityLinks;
 
@@ -81,5 +84,10 @@ public class Park {
 
   public void setLongitude(double longitude) {
     this.longitude = longitude;
+  }
+
+  @JsonSerialize(contentAs = BaseAmenity.class)
+  public List<Amenity> getAmenities() {
+    return amenities;
   }
 }

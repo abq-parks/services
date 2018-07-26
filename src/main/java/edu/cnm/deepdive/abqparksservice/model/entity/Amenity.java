@@ -1,5 +1,8 @@
 package edu.cnm.deepdive.abqparksservice.model.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import edu.cnm.deepdive.abqparksservice.utils.BaseAmenity;
+import edu.cnm.deepdive.abqparksservice.utils.BasePark;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -16,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 
 @Entity
-public class Amenity {
+public class Amenity implements BaseAmenity {
 
   private static EntityLinks entityLinks;
 
@@ -55,11 +58,12 @@ public class Amenity {
     this.name = name;
   }
 
-  public List<Park> getParks() {
-    return parks;
-  }
-
   public void setParks(List<Park> parks) {
     this.parks = parks;
+  }
+
+  @JsonSerialize(contentAs = BasePark.class)
+  public List<Park> getParks() {
+    return parks;
   }
 }

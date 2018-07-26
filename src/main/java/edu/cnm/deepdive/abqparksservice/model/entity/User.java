@@ -2,6 +2,7 @@ package edu.cnm.deepdive.abqparksservice.model.entity;
 
 import java.net.URI;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,6 +26,11 @@ public class User {
   @Autowired
   private void setEntityLinks(EntityLinks entityLinks) {
     User.entityLinks = entityLinks;
+  }
+
+  @PostConstruct
+  private void init() {
+    String ignore = entityLinks.toString();
   }
 
   @Id
