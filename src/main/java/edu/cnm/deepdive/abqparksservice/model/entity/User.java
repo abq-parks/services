@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.abqparksservice.model.entity;
 
+import java.net.URI;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,6 +43,10 @@ public class User {
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.DETACH)
   private List<Review> user;
+
+  public URI getHref() {
+    return entityLinks.linkForSingleResource(User.class, id).toUri();
+  }
 
   public String getLastName() {
     return lastName;
