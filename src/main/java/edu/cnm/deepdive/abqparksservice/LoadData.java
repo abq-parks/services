@@ -98,4 +98,5 @@ public class LoadData implements ApplicationRunner {
     parkRepository.saveAll(parks);
     System.out.println();
   }
+  
 }
