@@ -49,6 +49,12 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>com.github.kongchen</groupId>
+      <artifactId>swagger-maven-plugin</artifactId>
+      <version>3.1.7</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -57,8 +63,43 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>com.github.kongchen</groupId>
+        <artifactId>swagger-maven-plugin</artifactId>
+        <version>3.1.7</version>
+        <configuration>
+          <apiSources>
+            <apiSource>
+              <springmvc>true</springmvc>
+              <locations>
+                <location>edu.cnm.deepdive.abqparksservice.controller</location> <!-- Change as appropriate. -->
+              </locations>
+              <schemes>
+                <scheme>http</scheme> <!-- Augment or change as appropriate. -->
+              </schemes>
+              <host>localhost:25052</host> <!-- Change as appropriate. -->
+              <basePath>/rest/abq_park</basePath> <!-- Change as appropriate. -->
+              <info>
+                <title>Abq Parks controller documentation.</title> <!-- Change as appropriate. -->
+                <version>v1</version> <!-- Change as appropriate. -->
+                <description>Abq Parks controller documentation from Spring MVC annotations</description> <!-- Change as appropriate. -->
+              </info>
+              <templatePath>classpath:/templates/strapdown.html.hbs</templatePath> <!-- Change as appropriate. -->
+              <outputPath>${basedir}/docs/rest-api.html</outputPath> <!-- Change as appropriate. -->
+              <swaggerDirectory>${basedir}/docs</swaggerDirectory> <!-- Change as appropriate. -->
+            </apiSource>
+          </apiSources>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
-
 
 </project>
