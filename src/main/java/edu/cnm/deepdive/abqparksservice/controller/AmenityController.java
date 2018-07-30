@@ -15,19 +15,21 @@ import java.util.NoSuchElementException;
 @ExposesResourceFor(Amenity.class)
 @RequestMapping("/amenities")
 public class AmenityController {
-    private AmenityRepository amenityRepository;
 
-    @Autowired
-    public AmenityController(AmenityRepository amenityRepository) {
-        this.amenityRepository = amenityRepository;
-    }
+  private AmenityRepository amenityRepository;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Amenity> getReviews() {
-        return amenityRepository.findAll();
-    }
+  @Autowired
+  public AmenityController(AmenityRepository amenityRepository) {
+    this.amenityRepository = amenityRepository;
+  }
 
-    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
-    @ExceptionHandler(NoSuchElementException.class)
-    public void notFound() { }
+  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+  public Iterable<Amenity> getReviews() {
+    return amenityRepository.findAll();
+  }
+
+  @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
+  @ExceptionHandler(NoSuchElementException.class)
+  public void notFound() {
+  }
 }
