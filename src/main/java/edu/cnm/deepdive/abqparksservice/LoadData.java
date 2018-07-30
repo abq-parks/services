@@ -23,8 +23,9 @@ public class LoadData implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) {
-    LoadParks loadParks = new LoadParks(amenityRepository, parkRepository);
-    loadParks.readJson();
-
+    if (parkRepository.findAll().size() == 0) {
+      LoadParks loadParks = new LoadParks(amenityRepository, parkRepository);
+      loadParks.readJson();
+    }
   }
 }
