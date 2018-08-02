@@ -86,8 +86,8 @@ public class LoadParks {
     double longitude = 0.0;
     int numPoints = geometry.getRings().get(0).size();
     for (int i = 0; i < numPoints; i++) {
-      latitude += x2lon(geometry.getRings().get(0).get(i).get(0));
-      longitude += y2lat(geometry.getRings().get(0).get(i).get(1));
+      latitude += y2lat(geometry.getRings().get(0).get(i).get(1));
+      longitude += x2lon(geometry.getRings().get(0).get(i).get(0));
     }
     park.setLatitude(latitude/numPoints);
     park.setLongitude(longitude/numPoints);
