@@ -5,8 +5,10 @@ import edu.cnm.deepdive.abqparksservice.model.dao.ParkRepository;
 import edu.cnm.deepdive.abqparksservice.model.entity.Amenity;
 import edu.cnm.deepdive.abqparksservice.model.entity.Park;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.http.HttpStatus;
@@ -42,11 +44,8 @@ public class ParkController {
 
   @GetMapping(value = "{amenitiesId}", produces = MediaType.APPLICATION_JSON_VALUE)
   public Iterable<Park> searchParks(@PathVariable("amenitiesId") Long[] amenitiesId) {
-    List<Amenity> amenities = new ArrayList<>();
-    for (int i = 0; i < amenitiesId.length; i++) {
-      amenities.add(amenityRepository.findById(amenitiesId[i]).get());
-    }
-    return parkRepository.findDistinctByAmenitiesIn(amenities);
+    List<Long> idsList = Arrays.stream(amenitiesId).collect(Collectors.toList());
+    return parkRepository.findAllByAllAmenities(idsList, idsList.size());
   }
 
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
