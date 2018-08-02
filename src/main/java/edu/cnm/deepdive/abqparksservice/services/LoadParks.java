@@ -94,29 +94,20 @@ public class LoadParks {
   }
 
   private void setParkAmenities(Attributes attributes, Park park) {
-    if (attributes.getLITTENNISCOURTS() > 0) {
+    if (attributes.getLITTENNISCOURTS() > 0 || attributes.getUNLITTENNISCOURTS() > 0) {
       park.getAmenities().add(amenities.get(Amenities.LITTENNISCOURTS.ordinal()));
-    }
-    if (attributes.getUNLITTENNISCOURTS() > 0) {
-      park.getAmenities().add(amenities.get(Amenities.UNLITTENNISCOURTS.ordinal()));
     }
     if (attributes.getPLAYAREAS() > 0) {
       park.getAmenities().add(amenities.get(Amenities.PLAYAREAS.ordinal()));
     }
-    if (attributes.getFULLBASKETBALLCOURTS() > 0) {
+    if (attributes.getFULLBASKETBALLCOURTS() > 0 || attributes.getHALFBASKETBALLCOURTS() > 0) {
       park.getAmenities().add(amenities.get(Amenities.FULLBASKETBALLCOURTS.ordinal()));
-    }
-    if (attributes.getHALFBASKETBALLCOURTS() > 0) {
-      park.getAmenities().add(amenities.get(Amenities.HALFBASKETBALLCOURTS.ordinal()));
     }
     if (attributes.getSOCCERFIELDS() > 0) {
       park.getAmenities().add(amenities.get(Amenities.SOCCERFIELDS.ordinal()));
     }
-    if (attributes.getLITSOFTBALLFIELDS() > 0) {
+    if (attributes.getLITSOFTBALLFIELDS() > 0 || attributes.getUNLITSOFTBALLFIELDS() > 0) {
       park.getAmenities().add(amenities.get(Amenities.LITSOFTBALLFIELDS.ordinal()));
-    }
-    if (attributes.getUNLITSOFTBALLFIELDS() > 0) {
-      park.getAmenities().add(amenities.get(Amenities.UNLITSOFTBALLFIELDS.ordinal()));
     }
     if (attributes.getYOUTHBALLFIELDS() > 0) {
       park.getAmenities().add(amenities.get(Amenities.YOUTHBALLFIELDS.ordinal()));
