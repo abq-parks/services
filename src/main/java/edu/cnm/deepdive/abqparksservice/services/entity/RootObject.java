@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.abqparksservice.services.entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RootObject
 {
@@ -10,11 +11,15 @@ public class RootObject
 
   public void setDisplayFieldName(String displayFieldName) { this.displayFieldName = displayFieldName; }
 
-  private FieldAliases fieldAliases;
+  private HashMap<String, String> fieldAliases;
 
-  public FieldAliases getFieldAliases() { return this.fieldAliases; }
+  public HashMap<String, String> getFieldAliases() {
+    return fieldAliases;
+  }
 
-  public void setFieldAliases(FieldAliases fieldAliases) { this.fieldAliases = fieldAliases; }
+  public void setFieldAliases(HashMap<String, String> fieldAliases) {
+    this.fieldAliases = fieldAliases;
+  }
 
   private String geometryType;
 

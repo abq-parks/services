@@ -7,6 +7,7 @@ import edu.cnm.deepdive.abqparksservice.model.entity.Amenity;
 import edu.cnm.deepdive.abqparksservice.model.entity.Park;
 import edu.cnm.deepdive.abqparksservice.services.entity.Attributes;
 import edu.cnm.deepdive.abqparksservice.services.entity.Feature;
+import edu.cnm.deepdive.abqparksservice.services.entity.FieldAliases;
 import edu.cnm.deepdive.abqparksservice.services.entity.Geometry;
 
 import edu.cnm.deepdive.abqparksservice.services.entity.RootObject;
@@ -145,6 +146,7 @@ public class LoadParks {
     for (Amenities a : Amenities.values()) {
       Amenity amenity = new Amenity();
       amenity.setName(a.toString());
+      amenity.setDisplayName(jsonParks.getFieldAliases().get(a.toString()));
       amenities.add(amenity);
     }
   }
