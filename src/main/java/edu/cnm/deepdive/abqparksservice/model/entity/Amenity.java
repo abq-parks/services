@@ -41,6 +41,7 @@ public class Amenity implements BaseAmenity {
   @Column(nullable = false)
   private String name;
 
+  @Column(nullable = false)
   private String displayName;
 
   @ManyToMany(fetch = FetchType.EAGER, mappedBy = "amenities",

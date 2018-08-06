@@ -13,4 +13,6 @@ public interface BaseAmenity {
 
   public String getName();
 
+  public String getDisplayName();
+
 }
