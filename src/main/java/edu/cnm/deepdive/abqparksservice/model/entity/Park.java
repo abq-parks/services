@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
@@ -59,6 +60,10 @@ public class Park implements BasePark {
   @OrderBy("name ASC")
   private List<Amenity> amenities = new LinkedList<>();
 
+  @OneToMany(fetch = FetchType.EAGER,
+  cascade = CascadeType.REMOVE)
+  private List<Review> reviews = new LinkedList<>();
+
   public URI getHref() {
     return entityLinks.linkForSingleResource(Review.class, id).toUri();
   }
@@ -94,5 +99,9 @@ public class Park implements BasePark {
   @JsonSerialize(contentAs = BaseAmenity.class)
   public List<Amenity> getAmenities() {
     return amenities;
+  }
+  
+  public List<Review> getReviews() {
+    return reviews;
   }
 }
