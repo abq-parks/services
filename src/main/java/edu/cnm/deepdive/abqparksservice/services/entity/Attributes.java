@@ -1,131 +1,157 @@
 package edu.cnm.deepdive.abqparksservice.services.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Attributes
 {
-  private int OBJECTID;
-  private String PARKNAME;
-  private String PARKSTATUS;
-  private String JURISDICTION;
-  private double ACRES;
-  private double DEVELOPEDACRES;
-  private int LITTENNISCOURTS;
-  private int UNLITTENNISCOURTS;
-  private int PLAYAREAS;
-  private int FULLBASKETBALLCOURTS;
-  private int HALFBASKETBALLCOURTS;
-  private int SOCCERFIELDS;
-  private int LITSOFTBALLFIELDS;
-  private int UNLITSOFTBALLFIELDS;
-  private int YOUTHBALLFIELDS;
-  private int INDOORPOOLS;
-  private int OUTDOORPOOLS;
-  private int HORSESHOEPITS;
-  private int VOLLEYBALLCOURTS;
-  private int BACKSTOPS;
-  private int PICNICTABLES;
-  private int SHADESTRUCTURES;
-  private int PARKINGSPACES;
-  private int JOGGINGPATHS;
+  @SerializedName("OBJECTID")
+  private int objectId;
+  @SerializedName("PARKNAME")
+  private String parkName;
+  @SerializedName("PARKSTATUS")
+  private String parkStatus;
+  @SerializedName("JURISDICTION")
+  private String jurisdiction;
+  @SerializedName("ACRES")
+  private double acres;
+  @SerializedName("DEVELOPEDACRES")
+  private double developedAcres;
+  @SerializedName("LITTENNISCOURTS")
+  private int litTennisCourts;
+  @SerializedName("UNLITTENNISCOURTS")
+  private int unlitTennisCourts;
+  @SerializedName("PLAYAREAS")
+  private int playAreas;
+  @SerializedName("FULLBASKETBALLCOURTS")
+  private int fullBasketballCourts;
+  @SerializedName("HALFBASKETBALLCOURTS")
+  private int halfBasketballCourts;
+  @SerializedName("SOCCERFIELDS")
+  private int soccerFields;
+  @SerializedName("LITSOFTBALLFIELDS")
+  private int litSoftballFields;
+  @SerializedName("UNLITSOFTBALLFIELDS")
+  private int unlitSoftballFields;
+  @SerializedName("YOUTHBALLFIELDS")
+  private int youthballFields;
+  @SerializedName("INDOORPOOLS")
+  private int indoorPools;
+  @SerializedName("OUTDOORPOOLS")
+  private int outdoorPools;
+  @SerializedName("HORSESHOEPITS")
+  private int horseshoePits;
+  @SerializedName("VOLLEYBALLCOURTS")
+  private int volleyballCourts;
+  @SerializedName("BACKSTOPS")
+  private int backstops;
+  @SerializedName("PICNICTABLES")
+  private int picnictables;
+  @SerializedName("SHADESTRUCTURES")
+  private int ShadeStructures;
+  @SerializedName("PARKINGSPACES")
+  private int parkingSpaces;
+  @SerializedName("JOGGINGPATHS")
+  private int joggingPaths;
   private String created_user;
   private String created_date;
   private String last_edited_user;
   private String last_edited_date;
 
-  public int getOBJECTID() { return this.OBJECTID; }
+  public int getObjectId() { return this.objectId; }
 
-  public void setOBJECTID(int OBJECTID) { this.OBJECTID = OBJECTID; }
+  public void setObjectId(int objectId) { this.objectId = objectId; }
 
-  public String getPARKNAME() { return this.PARKNAME; }
+  public String getParkName() { return this.parkName; }
 
-  public void setPARKNAME(String PARKNAME) { this.PARKNAME = PARKNAME; }
+  public void setParkName(String parkName) { this.parkName = parkName; }
 
-  public String getPARKSTATUS() { return this.PARKSTATUS; }
+  public String getParkStatus() { return this.parkStatus; }
 
-  public void setPARKSTATUS(String PARKSTATUS) { this.PARKSTATUS = PARKSTATUS; }
+  public void setParkStatus(String parkStatus) { this.parkStatus = parkStatus; }
 
-  public String getJURISDICTION() { return this.JURISDICTION; }
+  public String getJurisdiction() { return this.jurisdiction; }
 
-  public void setJURISDICTION(String JURISDICTION) { this.JURISDICTION = JURISDICTION; }
+  public void setJurisdiction(String jurisdiction) { this.jurisdiction = jurisdiction; }
 
-  public double getACRES() { return this.ACRES; }
+  public double getAcres() { return this.acres; }
 
-  public void setACRES(double ACRES) { this.ACRES = ACRES; }
+  public void setAcres(double acres) { this.acres = acres; }
 
-  public double getDEVELOPEDACRES() { return this.DEVELOPEDACRES; }
+  public double getDevelopedAcres() { return this.developedAcres; }
 
-  public void setDEVELOPEDACRES(double DEVELOPEDACRES) { this.DEVELOPEDACRES = DEVELOPEDACRES; }
+  public void setDevelopedAcres(double developedAcres) { this.developedAcres = developedAcres; }
 
-  public int getLITTENNISCOURTS() { return this.LITTENNISCOURTS; }
+  public int getLitTennisCourts() { return this.litTennisCourts; }
 
-  public void setLITTENNISCOURTS(int LITTENNISCOURTS) { this.LITTENNISCOURTS = LITTENNISCOURTS; }
+  public void setLitTennisCourts(int litTennisCourts) { this.litTennisCourts = litTennisCourts; }
 
-  public int getUNLITTENNISCOURTS() { return this.UNLITTENNISCOURTS; }
+  public int getUnlitTennisCourts() { return this.unlitTennisCourts; }
 
-  public void setUNLITTENNISCOURTS(int UNLITTENNISCOURTS) { this.UNLITTENNISCOURTS = UNLITTENNISCOURTS; }
+  public void setUnlitTennisCourts(int unlitTennisCourts) { this.unlitTennisCourts = unlitTennisCourts; }
 
-  public int getPLAYAREAS() { return this.PLAYAREAS; }
+  public int getPlayAreas() { return this.playAreas; }
 
-  public void setPLAYAREAS(int PLAYAREAS) { this.PLAYAREAS = PLAYAREAS; }
+  public void setPlayAreas(int playAreas) { this.playAreas = playAreas; }
 
-  public int getFULLBASKETBALLCOURTS() { return this.FULLBASKETBALLCOURTS; }
+  public int getFullBasketballCourts() { return this.fullBasketballCourts; }
 
-  public void setFULLBASKETBALLCOURTS(int FULLBASKETBALLCOURTS) { this.FULLBASKETBALLCOURTS = FULLBASKETBALLCOURTS; }
+  public void setFullBasketballCourts(int fullBasketballCourts) { this.fullBasketballCourts = fullBasketballCourts; }
 
-  public int getHALFBASKETBALLCOURTS() { return this.HALFBASKETBALLCOURTS; }
+  public int getHalfBasketballCourts() { return this.halfBasketballCourts; }
 
-  public void setHALFBASKETBALLCOURTS(int HALFBASKETBALLCOURTS) { this.HALFBASKETBALLCOURTS = HALFBASKETBALLCOURTS; }
+  public void setHalfBasketballCourts(int halfBasketballCourts) { this.halfBasketballCourts = halfBasketballCourts; }
 
-  public int getSOCCERFIELDS() { return this.SOCCERFIELDS; }
+  public int getSoccerFields() { return this.soccerFields; }
 
-  public void setSOCCERFIELDS(int SOCCERFIELDS) { this.SOCCERFIELDS = SOCCERFIELDS; }
+  public void setSoccerFields(int soccerFields) { this.soccerFields = soccerFields; }
 
-  public int getLITSOFTBALLFIELDS() { return this.LITSOFTBALLFIELDS; }
+  public int getLitSoftballFields() { return this.litSoftballFields; }
 
-  public void setLITSOFTBALLFIELDS(int LITSOFTBALLFIELDS) { this.LITSOFTBALLFIELDS = LITSOFTBALLFIELDS; }
+  public void setLitSoftballFields(int litSoftballFields) { this.litSoftballFields = litSoftballFields; }
 
-  public int getUNLITSOFTBALLFIELDS() { return this.UNLITSOFTBALLFIELDS; }
+  public int getUnlitSoftballFields() { return this.unlitSoftballFields; }
 
-  public void setUNLITSOFTBALLFIELDS(int UNLITSOFTBALLFIELDS) { this.UNLITSOFTBALLFIELDS = UNLITSOFTBALLFIELDS; }
+  public void setUnlitSoftballFields(int unlitSoftballFields) { this.unlitSoftballFields = unlitSoftballFields; }
 
-  public int getYOUTHBALLFIELDS() { return this.YOUTHBALLFIELDS; }
+  public int getYouthballFields() { return this.youthballFields; }
 
-  public void setYOUTHBALLFIELDS(int YOUTHBALLFIELDS) { this.YOUTHBALLFIELDS = YOUTHBALLFIELDS; }
+  public void setYouthballFields(int youthballFields) { this.youthballFields = youthballFields; }
 
-  public int getINDOORPOOLS() { return this.INDOORPOOLS; }
+  public int getIndoorPools() { return this.indoorPools; }
 
-  public void setINDOORPOOLS(int INDOORPOOLS) { this.INDOORPOOLS = INDOORPOOLS; }
+  public void setIndoorPools(int indoorPools) { this.indoorPools = indoorPools; }
 
-  public int getOUTDOORPOOLS() { return this.OUTDOORPOOLS; }
+  public int getOutdoorPools() { return this.outdoorPools; }
 
-  public void setOUTDOORPOOLS(int OUTDOORPOOLS) { this.OUTDOORPOOLS = OUTDOORPOOLS; }
+  public void setOutdoorPools(int outdoorPools) { this.outdoorPools = outdoorPools; }
 
-  public int getHORSESHOEPITS() { return this.HORSESHOEPITS; }
+  public int getHorseshoePits() { return this.horseshoePits; }
 
-  public void setHORSESHOEPITS(int HORSESHOEPITS) { this.HORSESHOEPITS = HORSESHOEPITS; }
+  public void setHorseshoePits(int horseshoePits) { this.horseshoePits = horseshoePits; }
 
-  public int getVOLLEYBALLCOURTS() { return this.VOLLEYBALLCOURTS; }
+  public int getVolleyballCourts() { return this.volleyballCourts; }
 
-  public void setVOLLEYBALLCOURTS(int VOLLEYBALLCOURTS) { this.VOLLEYBALLCOURTS = VOLLEYBALLCOURTS; }
+  public void setVolleyballCourts(int volleyballCourts) { this.volleyballCourts = volleyballCourts; }
 
-  public int getBACKSTOPS() { return this.BACKSTOPS; }
+  public int getBackstops() { return this.backstops; }
 
-  public void setBACKSTOPS(int BACKSTOPS) { this.BACKSTOPS = BACKSTOPS; }
+  public void setBackstops(int backstops) { this.backstops = backstops; }
 
-  public int getPICNICTABLES() { return this.PICNICTABLES; }
+  public int getPicnictables() { return this.picnictables; }
 
-  public void setPICNICTABLES(int PICNICTABLES) { this.PICNICTABLES = PICNICTABLES; }
+  public void setPicnictables(int picnictables) { this.picnictables = picnictables; }
 
-  public int getSHADESTRUCTURES() { return this.SHADESTRUCTURES; }
+  public int getShadeStructures() { return this.ShadeStructures; }
 
-  public void setSHADESTRUCTURES(int SHADESTRUCTURES) { this.SHADESTRUCTURES = SHADESTRUCTURES; }
+  public void setShadeStructures(int shadeStructures) { this.ShadeStructures = shadeStructures; }
 
-  public int getPARKINGSPACES() { return this.PARKINGSPACES; }
+  public int getParkingSpaces() { return this.parkingSpaces; }
 
-  public void setPARKINGSPACES(int PARKINGSPACES) { this.PARKINGSPACES = PARKINGSPACES; }
+  public void setParkingSpaces(int parkingSpaces) { this.parkingSpaces = parkingSpaces; }
 
-  public int getJOGGINGPATHS() { return this.JOGGINGPATHS; }
+  public int getJoggingPaths() { return this.joggingPaths; }
 
-  public void setJOGGINGPATHS(int JOGGINGPATHS) { this.JOGGINGPATHS = JOGGINGPATHS; }
+  public void setJoggingPaths(int joggingPaths) { this.joggingPaths = joggingPaths; }
 
   public String getCreatedUser() { return this.created_user; }
 
