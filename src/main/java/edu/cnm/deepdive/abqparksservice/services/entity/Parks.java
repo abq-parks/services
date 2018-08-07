@@ -1,14 +1,13 @@
 package edu.cnm.deepdive.abqparksservice.services.entity;
 
-public class Feature
+public class Parks
 {
   private Attributes attributes;
+  private Geometry geometry;
 
   public Attributes getAttributes() { return this.attributes; }
 
   public void setAttributes(Attributes attributes) { this.attributes = attributes; }
-
-  private Geometry geometry;
 
   public Geometry getGeometry() { return this.geometry; }
 

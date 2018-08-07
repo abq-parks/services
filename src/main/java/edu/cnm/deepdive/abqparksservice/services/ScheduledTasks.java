@@ -1,7 +1,7 @@
 package edu.cnm.deepdive.abqparksservice.services;
 
 import com.google.gson.Gson;
-import edu.cnm.deepdive.abqparksservice.services.entity.RootObject;
+import edu.cnm.deepdive.abqparksservice.services.entity.ParksRoot;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduledTasks {
 
-  private RootObject jsonPark;
+  private ParksRoot jsonPark;
 
   private static final String ABQ_PARK_URL =
       "http://coagisweb.cabq.gov/arcgis/rest/services/public/recreation/MapServer/0/query?where=1%3D1&outFields=*&f=json";
@@ -29,7 +29,7 @@ public class ScheduledTasks {
       e.printStackTrace();
     }
 
-    jsonPark = new Gson().fromJson(reader, RootObject.class);
+    jsonPark = new Gson().fromJson(reader, ParksRoot.class);
     populateDatabase();
   }
 

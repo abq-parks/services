@@ -6,10 +6,10 @@ import edu.cnm.deepdive.abqparksservice.model.dao.ParkRepository;
 import edu.cnm.deepdive.abqparksservice.model.entity.Amenity;
 import edu.cnm.deepdive.abqparksservice.model.entity.Park;
 import edu.cnm.deepdive.abqparksservice.services.entity.Attributes;
-import edu.cnm.deepdive.abqparksservice.services.entity.Feature;
+import edu.cnm.deepdive.abqparksservice.services.entity.Parks;
 import edu.cnm.deepdive.abqparksservice.services.entity.Geometry;
 
-import edu.cnm.deepdive.abqparksservice.services.entity.RootObject;
+import edu.cnm.deepdive.abqparksservice.services.entity.ParksRoot;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class LoadParks {
 
-  private RootObject jsonParks;
+  private ParksRoot jsonParks;
 
   private AmenityRepository amenityRepository;
   private ParkRepository parkRepository;
@@ -59,7 +59,7 @@ public class LoadParks {
     } catch (FileNotFoundException e) {
       //Do Nothing!
     }
-    jsonParks = new Gson().fromJson(reader, RootObject.class);
+    jsonParks = new Gson().fromJson(reader, ParksRoot.class);
     loadAmenities();
     loadParks();
     parkRepository.saveAll(parks);
@@ -67,7 +67,7 @@ public class LoadParks {
   }
 
   private void loadParks() {
-    for (Feature features : jsonParks.getFeatures()) {
+    for (Parks features : jsonParks.getParks()) {
       Attributes attributes = features.getAttributes();
       Geometry geometry = features.getGeometry();
       Park park = new Park();

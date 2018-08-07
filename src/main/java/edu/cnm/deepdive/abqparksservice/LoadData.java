@@ -15,31 +15,18 @@ public class LoadData implements ApplicationRunner {
 
   private AmenityRepository amenityRepository;
   private ParkRepository parkRepository;
-  private UserRepository userRepository;
 
   @Autowired
   public LoadData(AmenityRepository amenityRepository,
-      ParkRepository parkRepository, UserRepository userRepository) {
+      ParkRepository parkRepository) {
     this.amenityRepository = amenityRepository;
     this.parkRepository = parkRepository;
-    this.userRepository = userRepository;
   }
 
   @Override
   public void run(ApplicationArguments args) {
     if (parkRepository.findAll().size() == 0) {
-      LoadParks loadParks = new LoadParks(amenityRepository, parkRepository);
-      loadParks.readJson();
-      User defaultUser = new User();
-      defaultUser.setFirstName("Default");
-      defaultUser.setLastName("User");
-      defaultUser.setUserEmail("Default@email.com");
-      userRepository.save(defaultUser);
-      User defaultUser2 = new User();
-      defaultUser2.setFirstName("Default");
-      defaultUser2.setLastName("User 2");
-      defaultUser2.setUserEmail("Default2@email.com");
-      userRepository.save(defaultUser2);
+      new LoadParks(amenityRepository, parkRepository);
     }
   }
 }
