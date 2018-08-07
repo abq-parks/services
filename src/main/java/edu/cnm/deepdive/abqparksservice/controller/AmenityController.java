@@ -24,8 +24,8 @@ public class AmenityController {
   }
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-  public Iterable<Amenity> getReviews() {
-    return amenityRepository.findAll();
+  public Iterable<Amenity> getAmenities() {
+    return amenityRepository.findAllByOrderByDisplayName();
   }
 
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
