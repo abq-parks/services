@@ -19,6 +19,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.stereotype.Component;
@@ -60,7 +62,8 @@ public class Park implements BasePark {
   @OrderBy("name ASC")
   private List<Amenity> amenities = new LinkedList<>();
 
-  @OneToMany(fetch = FetchType.EAGER,
+  @LazyCollection(LazyCollectionOption.FALSE)
+  @OneToMany(
   cascade = CascadeType.REMOVE)
   private List<Review> reviews = new LinkedList<>();
 
@@ -100,7 +103,7 @@ public class Park implements BasePark {
   public List<Amenity> getAmenities() {
     return amenities;
   }
-  
+
   public List<Review> getReviews() {
     return reviews;
   }
