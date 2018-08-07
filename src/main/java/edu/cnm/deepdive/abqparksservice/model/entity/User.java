@@ -41,10 +41,10 @@ public class User {
   @Column(nullable = false)
   private String googleID;
 
-  @Column(nullable = false)
+  @Column(nullable = true)
   private String firstName;
 
-  @Column(nullable = false)
+  @Column(nullable = true)
   private String lastName;
 
   @Column

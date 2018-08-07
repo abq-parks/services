@@ -30,11 +30,13 @@ public class UserController {
 
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<User> post(@RequestBody User user) {
-    if (userRepository.findByGoogleID(user.getGoogleID()) == null) {
+    User userFound = userRepository.findByGoogleID(user.getGoogleID());
+    if (userFound == null) {
       userRepository.save(user);
       return ResponseEntity.created(user.getHref()).body(user);
+    } else {
+      return ResponseEntity.created(userFound.getHref()).body(userFound);
     }
-    return ResponseEntity.noContent().build();
   }
 
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
