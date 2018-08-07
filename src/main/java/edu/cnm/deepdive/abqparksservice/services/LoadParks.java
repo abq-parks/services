@@ -71,7 +71,7 @@ public class LoadParks {
       Attributes attributes = features.getAttributes();
       Geometry geometry = features.getGeometry();
       Park park = new Park();
-      park.setName(attributes.getPARKNAME());
+      park.setName(attributes.getParkName());
       setParkAmenities(attributes, park);
       findCenter(geometry, park);
       parks.add(park);
@@ -92,49 +92,49 @@ public class LoadParks {
   }
 
   private void setParkAmenities(Attributes attributes, Park park) {
-    if (attributes.getLITTENNISCOURTS() > 0 || attributes.getUNLITTENNISCOURTS() > 0) {
+    if (attributes.getLitTennisCourts() > 0 || attributes.getUnlitTennisCourts() > 0) {
       park.getAmenities().add(amenities.get(Amenities.LITTENNISCOURTS.ordinal()));
     }
-    if (attributes.getPLAYAREAS() > 0) {
+    if (attributes.getPlayAreas() > 0) {
       park.getAmenities().add(amenities.get(Amenities.PLAYAREAS.ordinal()));
     }
-    if (attributes.getFULLBASKETBALLCOURTS() > 0 || attributes.getHALFBASKETBALLCOURTS() > 0) {
+    if (attributes.getFullBasketballCourts() > 0 || attributes.getHalfBasketballCourts() > 0) {
       park.getAmenities().add(amenities.get(Amenities.FULLBASKETBALLCOURTS.ordinal()));
     }
-    if (attributes.getSOCCERFIELDS() > 0) {
+    if (attributes.getSoccerFields() > 0) {
       park.getAmenities().add(amenities.get(Amenities.SOCCERFIELDS.ordinal()));
     }
-    if (attributes.getLITSOFTBALLFIELDS() > 0 || attributes.getUNLITSOFTBALLFIELDS() > 0) {
+    if (attributes.getLitSoftballFields() > 0 || attributes.getUnlitSoftballFields() > 0) {
       park.getAmenities().add(amenities.get(Amenities.LITSOFTBALLFIELDS.ordinal()));
     }
-    if (attributes.getYOUTHBALLFIELDS() > 0) {
+    if (attributes.getYouthballFields() > 0) {
       park.getAmenities().add(amenities.get(Amenities.YOUTHBALLFIELDS.ordinal()));
     }
-    if (attributes.getINDOORPOOLS() > 0) {
+    if (attributes.getIndoorPools() > 0) {
       park.getAmenities().add(amenities.get(Amenities.INDOORPOOLS.ordinal()));
     }
-    if (attributes.getOUTDOORPOOLS() > 0) {
+    if (attributes.getOutdoorPools() > 0) {
       park.getAmenities().add(amenities.get(Amenities.OUTDOORPOOLS.ordinal()));
     }
-    if (attributes.getHORSESHOEPITS() > 0) {
+    if (attributes.getHorseshoePits() > 0) {
       park.getAmenities().add(amenities.get(Amenities.HORSESHOEPITS.ordinal()));
     }
-    if (attributes.getVOLLEYBALLCOURTS() > 0) {
+    if (attributes.getVolleyballCourts() > 0) {
       park.getAmenities().add(amenities.get(Amenities.VOLLEYBALLCOURTS.ordinal()));
     }
-    if (attributes.getBACKSTOPS() > 0) {
+    if (attributes.getBackstops() > 0) {
       park.getAmenities().add(amenities.get(Amenities.BACKSTOPS.ordinal()));
     }
-    if (attributes.getPICNICTABLES() > 0) {
+    if (attributes.getPicnictables() > 0) {
       park.getAmenities().add(amenities.get(Amenities.PICNICTABLES.ordinal()));
     }
-    if (attributes.getSHADESTRUCTURES() > 0) {
+    if (attributes.getShadeStructures() > 0) {
       park.getAmenities().add(amenities.get(Amenities.SHADESTRUCTURES.ordinal()));
     }
-    if (attributes.getPARKINGSPACES() > 0) {
+    if (attributes.getParkingSpaces() > 0) {
       park.getAmenities().add(amenities.get(Amenities.PARKINGSPACES.ordinal()));
     }
-    if (attributes.getJOGGINGPATHS() > 0) {
+    if (attributes.getJoggingPaths() > 0) {
       park.getAmenities().add(amenities.get(Amenities.JOGGINGPATHS.ordinal()));
     }
   }
