@@ -7,7 +7,6 @@ import edu.cnm.deepdive.abqparksservice.model.entity.Amenity;
 import edu.cnm.deepdive.abqparksservice.model.entity.Park;
 import edu.cnm.deepdive.abqparksservice.services.entity.Attributes;
 import edu.cnm.deepdive.abqparksservice.services.entity.Feature;
-import edu.cnm.deepdive.abqparksservice.services.entity.FieldAliases;
 import edu.cnm.deepdive.abqparksservice.services.entity.Geometry;
 
 import edu.cnm.deepdive.abqparksservice.services.entity.RootObject;
@@ -47,19 +46,18 @@ public class LoadParks {
     JOGGINGPATHS
   }
 
-
   public LoadParks(AmenityRepository amenityRepository, ParkRepository parkRepository) {
     this.amenityRepository = amenityRepository;
     this.parkRepository = parkRepository;
+    readJson();
   }
 
-  public void readJson() {
+  private void readJson() {
     BufferedReader reader = null;
     try {
       reader = new BufferedReader(new FileReader("parks.json"));
     } catch (FileNotFoundException e) {
-      //Do something for now!
-      e.printStackTrace();
+      //Do Nothing!
     }
     jsonParks = new Gson().fromJson(reader, RootObject.class);
     loadAmenities();
@@ -75,7 +73,6 @@ public class LoadParks {
       Park park = new Park();
       park.setName(attributes.getPARKNAME());
       setParkAmenities(attributes, park);
-      // TODO Set to center of park or array of lat/long
       findCenter(geometry, park);
       parks.add(park);
     }
@@ -146,19 +143,28 @@ public class LoadParks {
     for (Amenities a : Amenities.values()) {
       Amenity amenity = new Amenity();
       amenity.setName(a.toString());
-      amenity.setDisplayName(jsonParks.getFieldAliases().get(a.toString()));
+      String displayName = jsonParks.getFieldAliases().get(a.toString());
+      if (displayName.equals("Lit Tennis Courts") || displayName.equals("Unlit Tennis Courts")) {
+        displayName = "Tennis Courts";
+      }
+      if (displayName.equals("Full Basketball Courts") || displayName.equals("Half Basketball Courts")) {
+        displayName = "Basketball Courts";
+      }
+      if (displayName.equals("Lit Softball Fields") || displayName.equals("Unlit Softball Fields")) {
+        displayName = "Softball Fields";
+      }
+      amenity.setDisplayName(displayName);
       amenities.add(amenity);
     }
   }
 
-  private static final double RADIUS = 6378137.0; /* in meters on the equator */
+  private static final double RADIUS = 6378137.0;
 
-  /* These functions take their length parameter in meters and return an angle in degrees */
-  private static double y2lat(double aY) {
+  private double y2lat(double aY) {
     return Math.toDegrees(Math.atan(Math.exp(aY / RADIUS)) * 2 - Math.PI / 2);
   }
 
-  private static double x2lon(double aX) {
+  private double x2lon(double aX) {
     return Math.toDegrees(aX / RADIUS);
   }
 }
