@@ -39,6 +39,9 @@ public class User {
   private long id;
 
   @Column(nullable = false)
+  private String googleID;
+
+  @Column(nullable = false)
   private String firstName;
 
   @Column(nullable = false)
@@ -52,6 +55,14 @@ public class User {
 
   public URI getHref() {
     return entityLinks.linkForSingleResource(User.class, id).toUri();
+  }
+
+  public String getGoogleID() {
+    return googleID;
+  }
+
+  public void setGoogleID(String googleID) {
+    this.googleID = googleID;
   }
 
   public String getLastName() {

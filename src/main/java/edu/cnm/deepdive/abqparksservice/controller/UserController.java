@@ -28,15 +28,13 @@ public class UserController {
     this.userRepository = userRepository;
   }
 
-  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-  public Iterable<User> getReviews() {
-    return userRepository.findAll();
-  }
-
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<User> post(@RequestBody User user) {
-    userRepository.save(user);
-    return ResponseEntity.created(user.getHref()).body(user);
+    if (userRepository.findByGoogleID(user.getGoogleID()) == null) {
+      userRepository.save(user);
+      return ResponseEntity.created(user.getHref()).body(user);
+    }
+    return ResponseEntity.noContent().build();
   }
 
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
