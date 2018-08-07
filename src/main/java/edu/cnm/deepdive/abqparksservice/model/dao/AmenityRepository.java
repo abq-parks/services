@@ -5,5 +5,5 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AmenityRepository extends CrudRepository<Amenity, Long> {
-  List<Amenity> findAll();
+  List<Amenity> findAllByOrderByDisplayName();
 }

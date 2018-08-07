@@ -29,12 +29,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ParkController {
 
   private ParkRepository parkRepository;
-  private AmenityRepository amenityRepository;
 
   @Autowired
-  public ParkController(ParkRepository parkRepository, AmenityRepository amenityRepository) {
+  public ParkController(ParkRepository parkRepository) {
     this.parkRepository = parkRepository;
-    this.amenityRepository = amenityRepository;
   }
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
