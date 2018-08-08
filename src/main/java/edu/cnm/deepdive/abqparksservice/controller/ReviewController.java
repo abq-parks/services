@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * This is the review REST controller.
+ */
 @RestController
 @ExposesResourceFor(Review.class)
 @RequestMapping("/reviews")
@@ -28,6 +31,12 @@ public class ReviewController {
   private ParkRepository parkRepository;
   private UserRepository userRepository;
 
+  /**
+   * Auto wires ReviewRepository, ParkRepository, and UserRepository.
+   * @param reviewRepository ReviewRepository
+   * @param parkRepository ParkRepository
+   * @param userRepository UserRepository
+   */
   @Autowired
   public ReviewController(ReviewRepository reviewRepository, ParkRepository parkRepository, UserRepository userRepository) {
     this.reviewRepository = reviewRepository;
@@ -35,11 +44,22 @@ public class ReviewController {
     this.userRepository = userRepository;
   }
 
+  /**
+   * Returns all reviews for requested park.
+   * @param parkId id of the park.
+   * @return all reviews for requested park.
+   */
   @GetMapping(value ="{parkId}", produces = MediaType.APPLICATION_JSON_VALUE)
   public Iterable<Review> getReviews(@PathVariable("parkId") long parkId) {
     return reviewRepository.findAllByPark_IdOrderByReviewDesc(parkId);
   }
 
+  /**
+   * Post a review for selected park.
+   * @param args contains the park ID and user ID in a common separated string that parses into Long[].
+   * @param review string containing text of the review.
+   * @return the URI and review body.
+   */
   @PostMapping(value = "{args}", consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Review> post(@PathVariable("args") Long[] args, @RequestBody Review review) {
     return parkRepository.findById(args[0]).map(
@@ -56,6 +76,9 @@ public class ReviewController {
     ).get();
   }
 
+  /**
+   * Error handling.
+   */
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
   @ExceptionHandler(NoSuchElementException.class)
   public void notFound() {
