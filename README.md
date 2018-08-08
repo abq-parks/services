@@ -8,7 +8,7 @@ Abq Parks (service) is the back-end for the Abq Parks application. Performs all 
 * Java (JDK 8)
 
 ### Installing
-Click [here] for installation instructions.
+Click [here](https://github.com/abq-parks/services/blob/master/docs/installation.md) for installation instructions.
 
 ### Using the Service
 Click [here] for basic instructions.
