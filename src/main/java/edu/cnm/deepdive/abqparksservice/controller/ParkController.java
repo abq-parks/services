@@ -1,10 +1,7 @@
 package edu.cnm.deepdive.abqparksservice.controller;
 
-import edu.cnm.deepdive.abqparksservice.model.dao.AmenityRepository;
 import edu.cnm.deepdive.abqparksservice.model.dao.ParkRepository;
-import edu.cnm.deepdive.abqparksservice.model.entity.Amenity;
 import edu.cnm.deepdive.abqparksservice.model.entity.Park;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
