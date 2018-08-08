@@ -25,6 +25,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.stereotype.Component;
 
+/**
+ * This entity class is used to store information on each park such as park id, name and location.
+ */
 @Component
 @Entity
 public class Park implements BasePark {
@@ -67,43 +70,83 @@ public class Park implements BasePark {
   cascade = CascadeType.REMOVE)
   private List<Review> reviews = new LinkedList<>();
 
+  /**
+   * Returns a URI that links to the park.
+   * @return a URI that links to the park.
+   */
   public URI getHref() {
     return entityLinks.linkForSingleResource(Review.class, id).toUri();
   }
 
+  /**
+   * Returns the id for the park.
+   * @return the id for the park.
+   */
   public long getId() {
     return id;
   }
 
+  /**
+   * Returns the name of the park.
+   * @return the name of the park.
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * Sets the name of the park.
+   * @param name the name of the park.
+   */
   public void setName(String name) {
     this.name = name;
   }
 
+  /**
+   * Returns the "center" latitude of the park.
+   * @return the "center" latitude of the park.
+   */
   public double getLatitude() {
     return latitude;
   }
 
+  /**
+   * Sets the "center" latitude of the park.
+   * @param latitude the "center" latitude of the park.
+   */
   public void setLatitude(double latitude) {
     this.latitude = latitude;
   }
 
+  /**
+   * Returns the "center" longitude of the park.
+   * @return the "center" longitude of the park.
+   */
   public double getLongitude() {
     return longitude;
   }
 
+  /**
+   * Sets the "center" longitude of the park.
+   * @param longitude the "center" longitude of the park.
+   */
   public void setLongitude(double longitude) {
     this.longitude = longitude;
   }
 
+  /**
+   * Returns a list of amenities that the park contains.
+   * @return a list of amenities that the park contains.
+   */
   @JsonSerialize(contentAs = BaseAmenity.class)
   public List<Amenity> getAmenities() {
     return amenities;
   }
 
+  /**
+   * Returns a list of reviews for the park.
+   * @return a list of reviews for the park.
+   */
   public List<Review> getReviews() {
     return reviews;
   }

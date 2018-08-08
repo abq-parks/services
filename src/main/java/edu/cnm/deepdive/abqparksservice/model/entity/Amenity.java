@@ -18,6 +18,9 @@ import javax.persistence.OrderBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 
+/**
+ * This entity class information about a park amenity such as the id, name, and display name.
+ */
 @Entity
 public class Amenity implements BaseAmenity {
 
@@ -49,30 +52,58 @@ public class Amenity implements BaseAmenity {
   @OrderBy("name ASC")
   private List<Park> parks = new LinkedList<>();
 
+  /**
+   * Returns the id for the amenity.
+   * @return the id for the amenity.
+   */
   public long getId() {
     return id;
   }
 
+  /**
+   * Returns the name of the park.
+   * @return the name of the park.
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * Sets the name of the park.
+   * @param name the name of the park.
+   */
   public void setName(String name) {
     this.name = name;
   }
 
+  /**
+   * Returns the display name for the park.
+   * @return the display name for the park.
+   */
   public String getDisplayName() {
     return displayName;
   }
 
+  /**
+   * Sets the display name for the park.
+   * @param displayName the display name for the park.
+   */
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
+  /**
+   * Sets the list of parks that contain the amenity.
+   * @param parks the list of parks that contain the amenity.
+   */
   public void setParks(List<Park> parks) {
     this.parks = parks;
   }
 
+  /**
+   * Returns the list of parks that contain the amenity.
+   * @return the list of parks that contain the amenity.
+   */
   @JsonSerialize(contentAs = BasePark.class)
   public List<Park> getParks() {
     return parks;
