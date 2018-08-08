@@ -10,12 +10,22 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class implements {@link ApplicationRunner} and is used to call the {@link LoadParks} class
+ * on startup to populate the database with ABQ parks data.
+ */
 @Component
 public class LoadData implements ApplicationRunner {
 
   private AmenityRepository amenityRepository;
   private ParkRepository parkRepository;
 
+  /**
+   * {@link LoadData} constructor used to auto wire {@link AmenityRepository} and
+   * {@link ParkRepository} and set them to member fields.
+   * @param amenityRepository AmenityRepository dao.
+   * @param parkRepository ParkRepository dao.
+   */
   @Autowired
   public LoadData(AmenityRepository amenityRepository,
       ParkRepository parkRepository) {

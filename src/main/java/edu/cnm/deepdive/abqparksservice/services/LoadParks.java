@@ -8,7 +8,6 @@ import edu.cnm.deepdive.abqparksservice.model.entity.Park;
 import edu.cnm.deepdive.abqparksservice.services.entity.Attributes;
 import edu.cnm.deepdive.abqparksservice.services.entity.Parks;
 import edu.cnm.deepdive.abqparksservice.services.entity.Geometry;
-
 import edu.cnm.deepdive.abqparksservice.services.entity.ParksRoot;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -16,6 +15,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is used to populate the database with all the ABQ parks data.
+ */
 public class LoadParks {
 
   private ParksRoot jsonParks;
@@ -46,6 +48,12 @@ public class LoadParks {
     JOGGINGPATHS
   }
 
+  /**
+   * This constructor sets amenityRepository & parkRepository fields and calls the readJson
+   * method to populate the database.
+   * @param amenityRepository AmenityRepository dao.
+   * @param parkRepository ParkRepository dao.
+   */
   public LoadParks(AmenityRepository amenityRepository, ParkRepository parkRepository) {
     this.amenityRepository = amenityRepository;
     this.parkRepository = parkRepository;
