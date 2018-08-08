@@ -31,7 +31,7 @@ public class GoogleTokenServices implements ResourceServerTokenServices {
 
   private final AccessTokenConverter converter = new DefaultAccessTokenConverter();
   private final String clientId;
-  
+
   public GoogleTokenServices(String clientId) {
     this.clientId = clientId;
   }
