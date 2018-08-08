@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
+/**
+ * This is the amenity REST controller.
+ */
 @RestController
 @ExposesResourceFor(Amenity.class)
 @RequestMapping("/amenities")
@@ -21,16 +23,27 @@ public class AmenityController {
 
   private AmenityRepository amenityRepository;
 
+  /**
+   * Auto wires AmenityRepository.
+   * @param amenityRepository AmenityRepository
+   */
   @Autowired
   public AmenityController(AmenityRepository amenityRepository) {
     this.amenityRepository = amenityRepository;
   }
 
+  /**
+   * Returns a list of all amenities that a park can contain.
+   * @return a list of all amenities that a park can contain.
+   */
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public Iterable<Amenity> getAmenities() {
     return amenityRepository.findAllByOrderByDisplayName();
   }
 
+  /**
+   * Error handling.
+   */
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
   @ExceptionHandler(NoSuchElementException.class)
   public void notFound() {
