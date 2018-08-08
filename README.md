@@ -14,6 +14,7 @@ Click [here](https://github.com/abq-parks/services/blob/master/docs/installation
 Click [here] for basic instructions.
 
 ## Tests
+Emulator: Nexus 5X (Android 7.0, API 24)
 
 ## Built With
 * [City of Albuquerque Open Data](https://www.cabq.gov/abq-data)
