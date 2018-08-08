@@ -11,7 +11,7 @@ Abq Parks (service) is the back-end for the Abq Parks application. Performs all 
 Click [here](https://github.com/abq-parks/services/blob/master/docs/installation.md) for installation instructions.
 
 ### Using the Service
-Click [here] for basic instructions.
+Once installed, simply run the project.
 
 ## Tests
 Emulator: Nexus 5X (Android 7.0, API 24)
