@@ -25,7 +25,7 @@ Click [here] for basic instructions.
 * [DDL](https://github.com/abq-parks/services/blob/master/docs/DDL.sql)
 
 ## License
-This project is licensed under the Apache License 2.0. [more](https://github.com/abq-parks/Abq-Parks/blob/master/LICENSE)
+This project is licensed under the Apache License 2.0. [more](https://github.com/abq-parks/services/blob/master/LICENSE)
 
 ## Team
 * Jason Rafferty
