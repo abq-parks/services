@@ -1,5 +1,8 @@
 package edu.cnm.deepdive.abqparksservice.services.entity;
 
+/**
+ * This is the Field class.
+ */
 public class Field
 {
   private String name;
