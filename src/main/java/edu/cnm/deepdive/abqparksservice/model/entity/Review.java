@@ -19,6 +19,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.stereotype.Component;
 
+/**
+ * This entity class is used to store data for each park review.
+ */
 @Component
 @Entity
 public class Review {
@@ -55,10 +58,18 @@ public class Review {
   @JoinColumn(name = "user_id", nullable = false)
   private User user;
 
+  /**
+   * Returns a {@link URI} link to the review.
+   * @return a {@link URI} link to the review.
+   */
   public URI getHref() {
     return entityLinks.linkForSingleResource(Review.class, id).toUri();
   }
 
+  /**
+   * Returns the id for the review.
+   * @return the id for the review.
+   */
   public long getId() {
     return id;
   }
@@ -67,26 +78,50 @@ public class Review {
     return date;
   }
 
+  /**
+   * Returns the text of the review as a string.
+   * @return the text of the review as a string.
+   */
   public String getReview() {
     return review;
   }
 
+  /**
+   * Sets the text of the review as a string.
+   * @param review the text of the review as a string.
+   */
   public void setReview(String review) {
     this.review = review;
   }
 
+  /**
+   * Returns the {@link Park} associated withe th review.
+   * @return the {@link Park} associated withe th review.
+   */
   public Park getPark() {
     return park;
   }
 
+  /**
+   * Sets the {@link Park} associated withe th review.
+   * @param park the {@link Park} associated withe th review.
+   */
   public void setPark(Park park) {
     this.park = park;
   }
 
+  /**
+   * Returns the {@link User} associated with the review.
+   * @return the {@link User} associated with the review.
+   */
   public User getUser() {
     return user;
   }
 
+  /**
+   * Sets the {@link User} associated with the review.
+   * @param user the {@link User} associated with the review.
+   */
   public void setUser(User user) {
     this.user = user;
   }

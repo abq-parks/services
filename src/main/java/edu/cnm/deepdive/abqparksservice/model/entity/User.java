@@ -16,6 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class contains information on a user.
+ */
 @Component
 @Entity
 @Table(name = "users")
@@ -53,42 +56,82 @@ public class User {
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.DETACH)
   private List<Review> user;
 
+  /**
+   * Returns a {@link URI} link for the user.
+   * @return a {@link URI} link for the user.
+   */
   public URI getHref() {
     return entityLinks.linkForSingleResource(User.class, id).toUri();
   }
 
-  public String getGoogleID() {
-    return googleID;
-  }
-
-  public void setGoogleID(String googleID) {
-    this.googleID = googleID;
-  }
-
-  public String getLastName() {
-    return lastName;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
+  /**
+   * Returns the users id.
+   * @return the users id.
+   */
   public long getId() {
     return id;
   }
 
+  /**
+   * Returns a string that contains the users Google ID.
+   * @return a string that contains the users Google ID.
+   */
+  public String getGoogleID() {
+    return googleID;
+  }
+
+  /**
+   * Sets the users Google ID.
+   * @param googleID the users Google ID.
+   */
+  public void setGoogleID(String googleID) {
+    this.googleID = googleID;
+  }
+
+  /**
+   * Returns the users last name.
+   * @return the users last name.
+   */
+  public String getLastName() {
+    return lastName;
+  }
+
+  /**
+   * Sets the users last name.
+   * @param lastName the users last name.
+   */
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  /**
+   * Returns the users first name.
+   * @return the users first name.
+   */
   public String getFirstName() {
     return firstName;
   }
 
+  /**
+   * Sets the users first name.
+   * @param firstName the users first name.
+   */
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
+  /**
+   * Returns the user email address.
+   * @return the user email address.
+   */
   public String getUserEmail() {
     return userEmail;
   }
 
+  /**
+   * Sets the user email address.
+   * @param userEmail the user email address.
+   */
   public void setUserEmail(String userEmail) {
     this.userEmail = userEmail;
   }

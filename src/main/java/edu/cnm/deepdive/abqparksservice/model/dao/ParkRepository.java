@@ -1,14 +1,22 @@
 package edu.cnm.deepdive.abqparksservice.model.dao;
 
-import java.util.List;
-import edu.cnm.deepdive.abqparksservice.model.entity.Amenity;
 import edu.cnm.deepdive.abqparksservice.model.entity.Park;
+import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+/**
+ * This interface extends {@link CrudRepository} and is used to query the parkk table.
+ */
 public interface ParkRepository extends CrudRepository<Park, Long> {
 
+  /**
+   * This custom query returns all parks that contain all chosen amenities. Thanks to Nick Bennett.
+   * @param amenityIds a list of all the chosen amenities.
+   * @param amenityCount total number of amenities chosen.
+   * @return a list of parks that contains the chosen amenities.
+   */
   @Query(value =
       "select "
           + "p.* "

@@ -71,8 +71,8 @@ public class Park implements BasePark {
   private List<Review> reviews = new LinkedList<>();
 
   /**
-   * Returns a URI that links to the park.
-   * @return a URI that links to the park.
+   * Returns a {@link URI} that links to the park.
+   * @return a {@link URI} that links to the park.
    */
   public URI getHref() {
     return entityLinks.linkForSingleResource(Review.class, id).toUri();
