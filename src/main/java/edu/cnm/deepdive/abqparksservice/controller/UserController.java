@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * This is the user REST controller.
+ */
 @RestController
 @ExposesResourceFor(User.class)
 @RequestMapping("/users")
@@ -27,6 +30,11 @@ public class UserController {
     this.userRepository = userRepository;
   }
 
+  /**
+   * Creates a user if one does not exist.
+   * @param user user object with users information.
+   * @return URI link and user object.
+   */
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<User> post(@RequestBody User user) {
     User userFound = userRepository.findByGoogleID(user.getGoogleID());
@@ -38,6 +46,9 @@ public class UserController {
     }
   }
 
+  /**
+   * Error handling.
+   */
   @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
   @ExceptionHandler(NoSuchElementException.class)
   public void notFound() {
