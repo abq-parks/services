@@ -102,8 +102,8 @@
                 <version>v1</version> <!-- Change as appropriate. -->
                 <description>Abq Parks controller documentation from Spring MVC annotations</description> <!-- Change as appropriate. -->
               </info>
-              <templatePath>classpath:/templates/strapdown.html.hbs</templatePath> <!-- Change as appropriate. -->
-              <outputPath>${basedir}/docs/rest-api.html</outputPath> <!-- Change as appropriate. -->
+              <templatePath>classpath:/templates/markdown.hbs</templatePath> <!-- Change as appropriate. -->
+              <outputPath>${basedir}/docs/rest-api.md</outputPath> <!-- Change as appropriate. -->
               <swaggerDirectory>${basedir}/docs</swaggerDirectory> <!-- Change as appropriate. -->
             </apiSource>
           </apiSources>
