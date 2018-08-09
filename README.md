@@ -31,11 +31,11 @@ Controller testing with Postman.
 
 ## License Information
 This project is licensed under the Apache License 2.0. [more](https://github.com/abq-parks/services/blob/master/LICENSE)  
-[Spring Boot](https://github.com/spring-projects/spring-boot#license)  
-[Apache Derby](https://db.apache.org/derby/license.html)  
-[GSON](https://github.com/google/gson#license)  
-[Swagger](https://swagger.io/license/)  
-[City of Albuquerque Open Data](https://www.cabq.gov/abq-data/abq-data-disclaimer-1)  
+* [Spring Boot](https://github.com/spring-projects/spring-boot#license)  
+* [Apache Derby](https://db.apache.org/derby/license.html)  
+* [GSON](https://github.com/google/gson#license)  
+* [Swagger](https://swagger.io/license/)  
+* [City of Albuquerque Open Data](https://www.cabq.gov/abq-data/abq-data-disclaimer-1)  
 
 ## Team
 * Jason Rafferty
