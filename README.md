@@ -28,8 +28,12 @@ Controller testing with Postman.
 * [Javadoc](docs/api/index.html)
 * [Swagger](docs/rest-api.md)
 
-## License
-This project is licensed under the Apache License 2.0. [more](https://github.com/abq-parks/services/blob/master/LICENSE)
+## License Information
+This project is licensed under the Apache License 2.0. [more](https://github.com/abq-parks/services/blob/master/LICENSE)  
+[Spring Boot](https://github.com/spring-projects/spring-boot#license)
+[GSON](https://github.com/google/gson#license)
+[Swagger](https://swagger.io/license/)
+[City of Albuquerque Open Data](https://www.cabq.gov/abq-data/abq-data-disclaimer-1)
 
 ## Team
 * Jason Rafferty
