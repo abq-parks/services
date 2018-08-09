@@ -26,7 +26,7 @@ Controller testing with Postman.
 * [ERD](docs/Parks%20ERD.pdf)
 * [DDL](docs/DDL.sql)
 * [Javadoc](docs/api/index.html)
-* [Swagger](docs/swagger.json)
+* [Swagger](docs/rest-api.html)
 
 ## License
 This project is licensed under the Apache License 2.0. [more](https://github.com/abq-parks/services/blob/master/LICENSE)
