@@ -1,7 +1,8 @@
-# Abq Parks (service)
-Abq Parks (service) is the back-end for the Abq Parks application. Performs all database functions.
+# Abq Parks (services)
+Abq Parks (services) is the back-end for the Abq Parks application. Performs all database functions.
 
 ## Current State
+Abq Parks services is fully operational. 
 
 ## Getting Started
 ### Prerequisites 
@@ -24,6 +25,8 @@ Emulator: Nexus 5X (Android 7.0, API 24)
 ## Links to Additional Documents
 * [ERD](https://github.com/abq-parks/services/blob/master/docs/Parks%20ERD.pdf)
 * [DDL](https://github.com/abq-parks/services/blob/master/docs/DDL.sql)
+* [Javadoc](https://github.com/abq-parks/services/blob/master/docs/api/index.html)
+* [Swagger](https://github.com/abq-parks/services/blob/master/docs/swagger.json)
 
 ## License
 This project is licensed under the Apache License 2.0. [more](https://github.com/abq-parks/services/blob/master/LICENSE)
