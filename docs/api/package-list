@@ -1,0 +1,7 @@
+edu.cnm.deepdive.abqparksservice
+edu.cnm.deepdive.abqparksservice.controller
+edu.cnm.deepdive.abqparksservice.model.dao
+edu.cnm.deepdive.abqparksservice.model.entity
+edu.cnm.deepdive.abqparksservice.services
+edu.cnm.deepdive.abqparksservice.services.entity
+edu.cnm.deepdive.abqparksservice.utils
