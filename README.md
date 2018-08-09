@@ -15,6 +15,7 @@ Click [here](docs/installation.md) for installation instructions.
 Once installed, simply run the project.
 
 ## Tests
+Java SE 8 (Ubuntu 16.04 LTS, Microsoft Windows 7/10)  
 Controller testing with Postman.
 
 ## Built With
