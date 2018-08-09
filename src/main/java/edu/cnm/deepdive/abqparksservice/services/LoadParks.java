@@ -49,7 +49,7 @@ public class LoadParks {
   }
 
   /**
-   * This constructor sets amenityRepository & parkRepository fields and calls the readJson
+   * This constructor sets amenityRepository and parkRepository fields and calls the readJson
    * method to populate the database.
    * @param amenityRepository AmenityRepository dao.
    * @param parkRepository ParkRepository dao.

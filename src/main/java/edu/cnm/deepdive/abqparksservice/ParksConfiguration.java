@@ -16,7 +16,7 @@ public class ParksConfiguration {
 
   /**
    * Get GoogleTokenServices object with Google client ID.
-   * @return
+   * @return GoogleTokenServices
    */
   @Bean
   public ResourceServerTokenServices tokenServices() {

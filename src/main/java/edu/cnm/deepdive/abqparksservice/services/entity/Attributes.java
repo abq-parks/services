@@ -86,7 +86,7 @@ public class Attributes
 
   /**
    * Returns the status of the park.
-   * @returnthe status of the park.
+   * @return the status of the park.
    */
   public String getParkStatus() { return this.parkStatus; }
 
@@ -104,7 +104,7 @@ public class Attributes
 
   /**
    * Sets the jurisdiction the park is in.
-   * @param jurisdiction
+   * @param jurisdiction the jurisdiction the park is in.
    */
   public void setJurisdiction(String jurisdiction) { this.jurisdiction = jurisdiction; }
 
